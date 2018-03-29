@@ -18,7 +18,4 @@ module.exports = async function(options) {
     });
   });
   fs.outputFileSync(output, strings, 'utf8');
-  if (spinner) {
-    spinner.info('+', path.relative(process.cwd(), output));
-  }
 }
