@@ -9,7 +9,7 @@ module.exports = async function(options) {
     throw new Error(`找到不到类型为 ${type} 的模板文件 ${file}`);
   }
   const _options = {
-    root: path.resolve(__dirname, templates)
+    root: path.resolve(__dirname, 'templates')
   }
   const strings = await new Promise((resolve, reject) => {
     ejs.renderFile(filePath, data || {}, _options, function(err, str){
