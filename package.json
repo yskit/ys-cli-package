@@ -1,6 +1,6 @@
 {
   "name": "ys-cli-package",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "nodejs mutify cli for template engine",
   "main": "index.js",
   "repository": {
