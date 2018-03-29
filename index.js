@@ -3,7 +3,7 @@ const path = require('path');
 const ejs = require('ejs');
 
 module.exports = async function(options) {
-  const { type, file, output, data, spinner } = options;
+  const { type, file, output, data } = options;
   const filePath = path.resolve(__dirname, './templates', type, file + '.ejs');
   if (!fs.existsSync(filePath)) {
     throw new Error(`找到不到类型为 ${type} 的模板文件 ${file}`);
