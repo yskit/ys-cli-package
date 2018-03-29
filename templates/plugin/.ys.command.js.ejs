@@ -1,11 +1,12 @@
-module.exports = class Commander {
-  constructor(installer) {
+module.exports = class CommanderModule {
+  constructor(installer, thread) {
     this.installer = installer;
+    this.thread = thread;
   }
 
   ['options:plugin']() {
     return {
-      enable: 'true',
+      enable: true,
       package: '<%=name%>',
       agent: ['agent'],
       dependencies: []
