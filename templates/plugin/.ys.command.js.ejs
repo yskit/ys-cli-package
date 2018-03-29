@@ -1,0 +1,58 @@
+module.exports = class Commander {
+  constructor(installer) {
+    this.installer = installer;
+  }
+
+  ['options:plugin']() {
+    return {
+      enable: 'true',
+      package: '<%=name%>',
+      agent: ['agent'],
+      dependencies: []
+    };
+  }
+
+  ['env:common']() {
+    return {};
+  }
+
+  ['env:dev']() {
+    return {};
+  }
+
+  ['env:stable']() {
+    return {};
+  }
+
+  ['env:staging']() {
+    return {};
+  }
+
+  ['env:product']() {
+    return {};
+  }
+
+  ['command:framework']() {
+
+  }
+
+  ['command:plugin']() {
+
+  }
+
+  ['command:noop']() {
+
+  }
+
+  ['command:common']() {
+
+  }
+
+  async ['life:created']() {
+
+  }
+
+  async ['life:destroyed']() {
+
+  }
+}

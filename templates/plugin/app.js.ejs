@@ -1,0 +1,38 @@
+module.exports = async (app, configs) => {
+  
+  app.on('ready', async () => {
+    // Application的ready生命周期我们可以自定义一些行为
+    app.console.log('application plugin configs', configs);
+  });
+
+  app.on('destroy', async () => {
+    // Application的destroy生命周期我们可以自定义一些行为
+    app.console.log('application plugin destroy');
+  });
+
+  app.on('beforeLoadFiles', async loader => {
+    // 预加载文件事件
+    app.console.log('beforeLoadFiles', Object.keys(loader));
+  });
+  
+  app.on('serverWillStart', async server => {
+    // 服务即将启动
+    app.console.log('service will start');
+  });
+  
+  app.on('serverDidStarted', async server => {
+    // 服务已启动
+    app.console.log('service started');
+  });
+  
+  app.on('serverWillStop', async server => {
+    // 服务即将停止
+    app.console.log('service will stop');
+  });
+  
+  app.on('serverDidStoped', async server => {
+    // 服务已停止
+    app.console.log('service stoped')
+  });
+
+}

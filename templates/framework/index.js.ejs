@@ -1,0 +1,7 @@
+const Mutify = require('ys-mutify');
+const mutify = new Mutify(__dirname + '/config');
+
+mutify.on('ready', () => console.log(`[${mutify.pid}]`, 'Master is ready.'));
+mutify.listen()
+  .then(() => console.log(`[${mutify.pid}]`, 'Master listened success'))
+  .catch(e => console.error(`[${mutify.pid}]`, 'Master listening catch error:', e));

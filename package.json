@@ -1,0 +1,14 @@
+{
+  "name": "ys-cli-package",
+  "version": "1.0.0",
+  "description": "nodejs mutify cli for template engine",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:yskit/ys-cli-package.git"
+  },
+  "dependencies": {
+    "ejs": "^2.5.8",
+    "fs-extra": "^5.0.0"
+  }
+}

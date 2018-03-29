@@ -1,0 +1,30 @@
+module.exports = async (component, agent) => {
+  // 演示如何获取插件配置
+  agent.console.log('component configs', component.options);
+
+  component.on('destroy', async () => {
+    // 插件被销毁事件
+    agent.console.log('component destroy')
+  });
+
+  component.on('task:start', async () => {
+    // 插件微服务启动事件
+    agent.console.log('task:start');
+  });
+
+  component.on('task:end', async () => {
+    // 插件微服务停止事件
+    agent.console.log('task:end');
+  });
+
+  agent.on('ready', async () => {
+    // Agent的ready生命周期我们可以自定义一些行为
+    // 这里演示获取Agent的配置参数
+    agent.console.log('agent plugin configs', agent.options);
+  });
+  
+  agent.on('destroy', async () => {
+    // Agent的destroy生命周期我们可以自定义一些行为
+    agent.console.log('agent plugin destroy');
+  });
+}

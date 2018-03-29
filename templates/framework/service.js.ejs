@@ -1,0 +1,11 @@
+const Service = require('ys-class');
+  
+module.exports = class <%= name.charAt(0).toUpperCase() + name.substring(1) %>Service extends Service {
+  constructor(ctx) {
+    super(ctx);
+  }
+
+  async common() {
+    return 'Hello world';
+  }
+}

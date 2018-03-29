@@ -1,0 +1,13 @@
+module.exports = async agent => {
+
+  agent.on('ready', async () => {
+    // Agent的ready生命周期我们可以自定义一些行为
+    agent.console.log(`[${agent.pid}]`, `[AGENT] ${agent.options.name} worker ready`);
+  });
+
+  agent.on('destroy', async () => {
+    // Agent的destroy生命周期我们可以自定义一些行为
+    agent.console.log(`[${agent.pid}]`, `[AGENT] ${agent.options.name} worker destroy`);
+  });
+  
+}

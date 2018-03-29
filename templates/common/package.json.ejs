@@ -1,0 +1,12 @@
+{
+  "name": "<%=label%>",
+  "version": "1.0.0",
+  "description": "<%= type === 'plugin' ? 'ys plugin for' + label : 'project of ' + label %>",
+  <%if (type === 'plugin') {%>
+  "plugin": {
+    "name": "<%=cname%>"
+  }
+  <%} else {%>
+  "framework": "<%=framework%>"
+  <%}%>
+}
