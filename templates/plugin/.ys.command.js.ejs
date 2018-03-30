@@ -1,5 +1,5 @@
 module.exports = class CommanderModule {
-  constructor(installer, thread) {
+  constructor(thread, installer) {
     this.installer = installer;
     this.thread = thread;
   }
@@ -33,27 +33,27 @@ module.exports = class CommanderModule {
     return {};
   }
 
-  ['command:framework']() {
+  ['command:framework'](app) {
 
   }
 
-  ['command:plugin']() {
+  ['command:plugin'](app) {
 
   }
 
-  ['command:noop']() {
+  ['command:noop'](app) {
 
   }
 
-  ['command:common']() {
+  ['command:common'](app) {
 
   }
 
-  async ['life:created']() {
+  async ['life:created']({ cwd }) {
 
   }
 
-  async ['life:destroyed']() {
+  async ['life:destroyed']({ cwd }) {
 
   }
 }
