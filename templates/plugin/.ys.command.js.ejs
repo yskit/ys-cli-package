@@ -33,27 +33,27 @@ module.exports = class CommanderModule {
     return {};
   }
 
-  ['command:framework'](app) {
+  static ['command:framework'](app, installer) {
 
   }
 
-  ['command:plugin'](app) {
+  static ['command:plugin'](app, installer) {
 
   }
 
-  ['command:noop'](app) {
+  static ['command:noop'](app, installer) {
 
   }
 
-  ['command:common'](app) {
+  static ['command:common'](app, installer) {
 
   }
 
-  async ['life:created']({ cwd }) {
+  async ['life:created']({ cwd, name, cname }) {
 
   }
 
-  async ['life:destroyed']({ cwd }) {
+  async ['life:destroyed']({ cwd, name }) {
 
   }
 }
