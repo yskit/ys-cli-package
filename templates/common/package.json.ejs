@@ -4,9 +4,14 @@
   "description": "<%= type === 'plugin' ? 'ys plugin for' + label : 'project of ' + label %>",
   <%if (type === 'plugin') {%>
   "plugin": {
-    "name": "<%=cname%>"
+    "name": "<%=cname%>",
+    "dependencies": [],
+    "framework": []
   }
   <%} else {%>
-  "framework": "<%=framework%>"
+  "framework": "<%=framework%>",
+  "scripts": {
+    "dev": "NODE_ENV=dev node index.js"
+  }
   <%}%>
 }
