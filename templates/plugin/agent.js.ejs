@@ -1,30 +1,36 @@
-module.exports = async (component, agent) => {
-  // 演示如何获取插件配置
-  agent.console.log('component configs', component.options);
-
-  component.on('destroy', async () => {
-    // 插件被销毁事件
-    agent.console.log('component destroy')
+module.exports = async (app, configs) => {
+  app.on('ready', async () => {
+    // Application的ready生命周期我们可以自定义一些行为
+    app.console.log('application plugin configs', configs);
   });
 
-  component.on('task:start', async () => {
-    // 插件微服务启动事件
-    agent.console.log('task:start');
+  app.on('destroy', async () => {
+    // Application的destroy生命周期我们可以自定义一些行为
+    app.console.log('application plugin destroy');
   });
 
-  component.on('task:end', async () => {
-    // 插件微服务停止事件
-    agent.console.log('task:end');
-  });
-
-  agent.on('ready', async () => {
-    // Agent的ready生命周期我们可以自定义一些行为
-    // 这里演示获取Agent的配置参数
-    agent.console.log('agent plugin configs', agent.options);
+  app.on('beforeLoadFiles', async loader => {
+    // 预加载文件事件
+    app.console.log('beforeLoadFiles', Object.keys(loader));
   });
   
-  agent.on('destroy', async () => {
-    // Agent的destroy生命周期我们可以自定义一些行为
-    agent.console.log('agent plugin destroy');
+  app.on('serverWillStart', async server => {
+    // 服务即将启动
+    app.console.log('service will start');
+  });
+  
+  app.on('serverDidStarted', async server => {
+    // 服务已启动
+    app.console.log('service started');
+  });
+  
+  app.on('serverWillStop', async server => {
+    // 服务即将停止
+    app.console.log('service will stop');
+  });
+  
+  app.on('serverDidStoped', async server => {
+    // 服务已停止
+    app.console.log('service stoped')
   });
 }
