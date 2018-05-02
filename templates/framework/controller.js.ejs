@@ -1,5 +1,11 @@
-module.exports = app => {
-  return async ctx => {
-    ctx.body = 'Hello world!';
+const Controller = require('ys-class');
+
+module.exports = class <%= name.charAt(0).toUpperCase() + name.substring(1) %>Controller extends Controller {
+  constructor(...args) {
+    super(...args);
   }
-}
+
+  common() {
+    this.ctx.body = 'ok';
+  }
+};
